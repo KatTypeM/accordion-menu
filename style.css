@@ -1,0 +1,95 @@
+ /*
+Theme Name: Accordion menu
+Author: Jason DeBay
+Author URI: https://kattypem.com
+Theme URI: https://kattypem.com
+Description: Accordion menu content. checkbox and radio content accordions.
+Version: 1.0.0
+*/
+ 
+ /* test styles css */
+*{
+	margin: 0;
+	padding: 0;
+}
+:root{
+	--test1: red;
+	--test2: blue;
+	--text-color: black;
+	--bg-header-color: powderblue;
+	--bg-header-color-hover: lightgreen;
+	--bg-content-color: #ddd;
+}
+body{
+	text-align: center;
+}
+
+.container-accordion{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.container-accordion h1{
+	margin-top: 50px;
+}
+.accordions{
+	width: 500px;
+	border-radius: 16px;
+	overflow: hidden;
+	
+}
+.accordion{
+	width: 100%;
+	color: var(--text-color);
+	overflow: hidden;
+}
+.acc-label{
+	display: flex;
+	justify-content: space-between;
+	padding: 1em;
+	background: var(--bg-header-color);
+	font-weight: 700;
+	cursor: pointer;
+}
+.acc-label:hover{
+	background: var(--bg-header-color-hover);
+}
+.acc-label::after{
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: "\f054";
+	color: var(--text-color);
+	width: 1em;
+	height: 1em;
+	text-align: center;
+	transition: all 0.4s ease;
+}
+.accordion:first-child{
+	border-bottom: 1px solid;
+}
+.acc-content{
+	max-height: 0;
+	padding: 0.1em;
+	color: var(--text-color);
+	background: var(--bg-content-color);
+	transition: all 0.4s ease;
+}
+.accordion input{
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+}
+.accordion input:checked  + .acc-label::after{
+	transform: rotate(90deg);
+}
+.accordion input:checked ~ .acc-content{
+	max-height: 100vh;
+	padding: 1em;
+}
+
+
+
+
+
+
+
